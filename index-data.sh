@@ -26,7 +26,7 @@ do
 done
 shift $((OPTIND -1))
 
-if [[ ! -d $LOGS_DIR ]]
+if [[ ! -d $LOGS_DIR ]]; then
   mkdir $LOGS_DIR
 fi
 
