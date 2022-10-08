@@ -126,9 +126,11 @@ def index_file(file, index_name):
         the_doc["_index"] = index_name
         docs.append(the_doc)
         if len(docs) == 2000:
+            print (f'Indexing {len(docs)} buy products')
             bulk(client, docs)
             docs = []
-    if docs:
+    if len(docs) > 0:
+        print (f'Indexing {len(docs)} buy products')
         bulk(client, docs)
 
     return docs_indexed

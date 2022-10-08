@@ -4,60 +4,41 @@
   },
   "mappings": {
     "properties": {
-      "productId": {
-        "type": "text",
-        "fields": {
-          "keyword": {
-            "type": "keyword",
-            "ignore_above": 256
-          }
-        }
-      },
-      "sku": {
-        "type": "text",
-        "fields": {
-          "keyword": {
-            "type": "keyword",
-            "ignore_above": 256
-          }
-        }
-      },
-      "name": {
-        "type": "text",
-        "fields": {
-          "keyword": {
-            "type": "keyword",
-            "ignore_above": 256
-          }
-        }
-      },
-      "type": {
-        "type": "text",
-        "fields": {
-          "keyword": {
-            "type": "keyword",
-            "ignore_above": 256
-          }
-        }
-      },
-      "startDate": {
-        "type": "text",
-        "fields": {
-          "keyword": {
-            "type": "keyword",
-            "ignore_above": 256
-          }
-        }
-      },
-      "active ": {
-        "type": "text",
-        "fields": {
-          "keyword": {
-            "type": "keyword",
-            "ignore_above": 256
-          }
+      "regularPrice": {
+        "type": "float"
+      }
+    },
+    "name": {
+      "type": "text",
+      "analyzer": "english",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 256
         }
       }
+    },
+    "shortDescription": {
+      "type": "text",
+      "analyzer": "english",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 256
+        }
+      }
+    },
+    "longDescription": {
+      "type": "text",
+      "analyzer": "english",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 256
+        }
+      },
+      "onSale": {"type": "boolean"},
+      "homeDelivery": {"type": "boolean"}      
     }
   }
 }
