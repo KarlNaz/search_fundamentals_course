@@ -114,15 +114,39 @@ def query():
 def create_query(user_query, filters, sort="_score", sortDir="desc"):
     print("Query: {} Filters: {} Sort: {}".format(user_query, filters, sort))
     query_obj = {
-        'size': 10,
+        "size": 10,
         "query": {
-            "match_all": {}, # Replace me with a query that both searches and filters
-            "query": user_query,
-            'fields': ['productId']
+            "query_string": {
+               "query": user_query,
+               "fields":  ["name", "shortDescription", "longDescription"],
+               "phrase_slop":3
+            }
         },
         "aggs": {
-            #### Step 4.b.i: create the appropriate query and aggregations here
-
+                "regularPrice": {
+                    "range": {
+                        "field": "regularPrice",
+                        "ranges": [
+                            {
+                                "to": 50
+                            },
+                            {
+                                "from": 50,
+                                "to": 200
+                            },
+                            {
+                                "from": 200,
+                            }
+                        ]
+                    }
+                },
+                "department": {
+                    "terms": {"field": "department.keyword"}
+                },
+                "products_without_a_image": {
+                    "missing": { "field": "image.keyword" }
+                }
         }
     }
+    
     return query_obj
