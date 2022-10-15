@@ -1,4 +1,4 @@
 #!/bin/bash
 export FLASK_ENV=development
-export FLASK_APP=week1
+export FLASK_APP=week2
 flask run --port 3000 

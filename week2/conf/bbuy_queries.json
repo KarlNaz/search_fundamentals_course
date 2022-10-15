@@ -3,7 +3,7 @@
     "index.refresh_interval": "5s",
     "analysis": {
       "analyzer": {
-        "trigram": {
+        "trigram": { 
           "type": "custom",
           "tokenizer": "standard",
           "filter": [
